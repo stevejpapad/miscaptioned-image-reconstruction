@@ -1,6 +1,6 @@
 # Latent Multimodal Reconstruction for Misinformation Detection
 
-Repository for the paper "Latent Multimodal Reconstruction for Misinformation Detection". 
+Repository for the paper "Latent Multimodal Reconstruction for Misinformation Detection". You can read the pre-print here: https://arxiv.org/abs/2504.06010
 
 ## Abstract
 >*Multimodal misinformation, such as miscaptioned images, where captions misrepresent an image’s origin, context, or meaning, poses a growing challenge in the digital age. To support fact-checkers, researchers have been focusing on creating datasets and developing methods for multimodal misinformation detection (MMD). Due to the scarcity of large-scale annotated MMD datasets, recent studies leverage synthetic training data via out-of-context image-caption pairs or named entity manipulations; altering names, dates, and locations. However, these approaches often produce simplistic misinformation that fails to reflect real-world complexity, limiting the robustness of detection models trained on them. Meanwhile, despite recent advancements, Large Vision-Language Models (LVLMs) remain underutilized for generating diverse, realistic synthetic training data for MMD. To address this gap, we introduce "MisCaption This!", a training dataset comprising LVLM-generated miscaptioned images. Additionally, we introduce “Latent Multimodal Reconstruction” (LAMAR), a network trained to reconstruct the embeddings of truthful captions, providing a strong auxiliary signal to the detection process. To optimize LAMAR, we explore different training strategies (end-to-end training and large-scale pre-training) and integration approaches (direct, mask, gate, and attention). Extensive experiments show that models trained on "MisCaption This!" generalize better on real-world misinformation, while LAMAR sets new state-of-the-art on both NewsCLIPpings and VERITE benchmarks; highlighting the potential of LVLM-generated data and reconstruction-based approaches for advancing MMD.*
@@ -28,6 +28,17 @@ If you encounter any problems while downloading and preparing VERITE (e.g., brok
 ## Reproducibility
 To extract CLIP features and reproduce all experiments run: 
 ```python src/main.py``` 
+
+## Citation 
+If you find our work useful, please cite:
+```
+@article{papadopoulos2025latent,
+      title={Latent Multimodal Reconstruction for Misinformation Detection}, 
+      author={Papadopoulos, Stefanos-Iordanis and Koutlis, Christos and Papadopoulos, Symeon and Petrantonakis, Panagiotis C},
+      journal={arXiv preprint arXiv:2504.06010},      
+      year={2025}
+}
+```
 
 ## Acknowledgements
 This work is partially funded by the "vera.ai: VERification Assisted by Artificial Intelligence" under grant agreement no. 101070093 and "DisAI - Improving scientific excellence and creativity in combating disinformation with artificial intelligence and language technologies" under grant agreement no. 101079164. 
