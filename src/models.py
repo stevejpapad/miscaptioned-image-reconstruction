@@ -385,18 +385,8 @@ class LAMAR(nn.Module):
         if self.model_version == "transformer":
             
             cls_token = self.cls_token.expand(b_size, 1, -1) 
-            
-            fused_features = combine_features(img, txt, self.fusion_method) 
-            fused_features = fused_features.reshape(b_size, -1, self.emb_dim)
-
-            if self.use_reconstruction and self.sim_coding:
-                x = torch.cat([cls_token, fused_features, recon.unsqueeze(1), sim_enc.unsqueeze(1)], dim=1)
-            
-            elif self.sim_coding:
-                x = torch.cat([cls_token, fused_features, sim_enc.unsqueeze(1)], dim=1)
-                        
-            else:
-                x = torch.cat([cls_token, fused_features], dim=1)    
+            x = x.reshape(b_size, -1, self.emb_dim)                
+            x = torch.cat([cls_token, x], dim=1)       
         
             if self.transformer_version == "default":
                 x = self.transformer(x)[:,0,:]
