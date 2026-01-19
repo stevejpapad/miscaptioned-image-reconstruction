@@ -436,7 +436,7 @@ def len_df(df, threshold):
     filtered_df["id"] = filtered_df["image_id"]
     filtered_df["id"] = np.where(filtered_df["falsified"], filtered_df["image_id"].astype(str) + "_fake", filtered_df["image_id"].astype(str))
     
-    filtered_df = filtered_df.sample(frac=1)
+    filtered_df = filtered_df.sample(frac=1, random_state=0)
 
     return filtered_df
 
