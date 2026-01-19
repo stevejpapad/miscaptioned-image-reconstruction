@@ -339,6 +339,9 @@ class LAMAR(nn.Module):
         recon = None
         
         if self.use_reconstruction:     
+            img = F.normalize(img, p=2, dim=1)
+            txt = F.normalize(txt, p=2, dim=1)    
+            
             recon = self.recon_component(img, txt)
                             
             if "integrate_gated" in self.use_reconstruction:            
