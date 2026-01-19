@@ -110,6 +110,7 @@ def train_step(model, input_dataloader, use_multiclass, current_epoch, optimizer
         input_texts = data[1].to(device, non_blocking=True).squeeze(1)
         
         target_texts = data[3].to(device, non_blocking=True).squeeze(1) 
+        target_texts = F.normalize(target_texts, p=2, dim=1) 
         
         if use_multiclass == True:
             labels = torch.nn.functional.one_hot(data[2].long(), num_classes=3).float().to(device, non_blocking=True)
